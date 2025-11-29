@@ -1,5 +1,7 @@
+import { Hero } from "./Hero";
+
 const Shortlets = () => {
-  return <div>Shortlets</div>;
+  return <div>{/* <Hero /> */}</div>;
 };
 
 export default Shortlets;

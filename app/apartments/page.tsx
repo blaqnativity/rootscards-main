@@ -1,5 +1,10 @@
+import DealsHeader from "@/components/DealsHeader";
 const Apartments = () => {
-  return <div>Apartments</div>;
+  return (
+    <div>
+      <DealsHeader />
+    </div>
+  );
 };
 
 export default Apartments;

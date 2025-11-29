@@ -4,7 +4,8 @@ import { Processes } from "./home/Processes";
 import { Testimonial } from "@/components/Testimonial";
 import { FAQ } from "@/components/FAQ";
 import { FAQData as data } from "@/constants";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/nav/Footer";
+import { Header } from "@/components/nav/Header";
 // import { PainPointSection } from "./PainPointSection";
 
 export const metadata: Metadata = {
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <div>
+      <Header />
       <Hero />
       {/* <PainPointSection /> */}
       <Processes />
