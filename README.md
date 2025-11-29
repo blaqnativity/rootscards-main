@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ rootscards - AI-Powered Smart Infrastructure (Next.js Rebuild)
 
-## Getting Started
+## Project Description
 
-First, run the development server:
+rootscards is an **AI-powered smart infrastructure platform** designed to eliminate physical bottlenecks and friction in high-volume environments like events, clinics, retail spaces, and corporate offices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This repository represents the **complete migration and recreation** of the original application, leveraging the **Next.js App Router** for superior performance, SEO, and maintainability.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The core function is to streamline operations and enhance user experience by providing **real-time insights** and **automated queue management** through smart identity technology.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technology Stack
 
-## Learn More
+| Category         | Technology                                                                              | Purpose                                                                    |
+| :--------------- | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------- |
+| **Framework**    | **Next.js (App Router)**                                                                | Primary React framework, enabling Server Components and optimized routing. |
+| **Language**     | **TypeScript**                                                                          | Enhances code quality and predictability for a large codebase.             |
+| **Styling**      | **Tailwind CSS**                                                                        | Utility-first CSS framework for rapid and responsive UI development.       |
+| **Icons**        | `@phosphor-icons/react`                                                                 | Modern, flexible icon library.                                             |
+| **State/Data**   | _[Specify Backend/State Management, e.g., React Context, Zustand, Redux Toolkit, etc.]_ | Centralized data management.                                               |
+| **Animation/UI** | _[, e.g., Rive (as seen in `Hero`), Framer Motion]_                                     | Complex interactions and visual effects.                                   |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Key Application Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The architecture is built around eliminating friction through smart identity and automation:
 
-## Deploy on Vercel
+### 1\. AI-Powered Smart Identity Engine
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Small Identity Engine:** Uses AI to power fast, secure, and unique identification.
+- **Real-Time Check-Ins:** Processes high volumes of users/guests in seconds using QR codes and other smart tokens.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 2\. Queue Management & Automation
+
+- **Automated Queue Routing:** Intelligently directs users to the correct process or station.
+- **Real-Time Dashboards:** Provides live operational data and user flow insights to staff and management.
+
+### 3\. High-Performance Design
+
+- **Themed Components:** Supports dynamic **Light and Dark modes** across the entire UI (as seen in the `Footer` component).
+- **Optimized Assets:** Leverages Next.js **Image Optimization** for all assets, ensuring fast loading times for logos, avatars, and background gradients, critical for a smooth user experience.
+
+---
+
+## 💻 Getting Started
+
+To run the project locally:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [your-repo-link]
+    cd rootscards-nextjs
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+3.  **Run the development server:**
+`bash
+    npm run dev
+    # or
+    yarn dev
+    `
+<!-- 4.  Open [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000) to view the application. -->

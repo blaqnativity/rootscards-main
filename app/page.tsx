@@ -6,7 +6,7 @@ import { FAQ } from "@/components/FAQ";
 import { FAQData as data } from "@/constants";
 import { Footer } from "@/components/nav/Footer";
 import { Header } from "@/components/nav/Header";
-// import { PainPointSection } from "./PainPointSection";
+import { PainPointSection } from "./home/PainPointSection";
 
 export const metadata: Metadata = {
   title: "rootscard",
@@ -18,7 +18,7 @@ const page = () => {
     <div>
       <Header />
       <Hero />
-      {/* <PainPointSection /> */}
+      <PainPointSection />
       <Processes />
       <Testimonial />
       <FAQ data={data} />

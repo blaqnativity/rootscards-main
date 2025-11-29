@@ -1,8 +1,10 @@
-import DealsHeader from "@/components/DealsHeader";
+import ApartmentType from "./ApartmentType";
+import Hero from "./Hero";
 const Apartments = () => {
   return (
     <div>
-      <DealsHeader />
+      <Hero />
+      <ApartmentType />
     </div>
   );
 };

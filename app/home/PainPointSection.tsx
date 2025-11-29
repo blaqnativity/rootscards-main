@@ -1,12 +1,15 @@
-'use client";';
+"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRight, ArrowRight, ArrowLeft } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import eventImage from "@/public/images/events.svg";
 import eventImage2 from "@/public/images/eventCheck.svg";
+
+const MotionImage = motion(Image);
 
 export const PainPointSection = () => {
   const slides = [
@@ -27,14 +30,20 @@ export const PainPointSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    if (currentIndex < slides.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    }
   };
 
   const activeSlide = slides[currentIndex];
+  const isFirstSlide = currentIndex === 0;
+  const isLastSlide = currentIndex === slides.length - 1;
 
   return (
     <section className="py-10 md:py-15 bg-[#F6F6F6]">
@@ -92,15 +101,28 @@ export const PainPointSection = () => {
               </div>
 
               <div className="flex items-center gap-4">
+                {/* PREV BUTTON: Disabled when isFirstSlide is true */}
                 <button
                   onClick={handlePrev}
-                  className="cursor-pointer bg-white p-3 rounded-full hover:bg-gray-100 transition-all duration-300"
+                  disabled={isFirstSlide}
+                  className={`cursor-pointer p-3 rounded-full transition-all duration-300 ${
+                    isFirstSlide
+                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      : "bg-white hover:bg-gray-100"
+                  }`}
                 >
                   <ArrowLeft />
                 </button>
+
+                {/* NEXT BUTTON: Disabled when isLastSlide is true */}
                 <button
                   onClick={handleNext}
-                  className="cursor-pointer bg-white p-3 rounded-full hover:bg-gray-100 transition-all duration-300"
+                  disabled={isLastSlide}
+                  className={`cursor-pointer p-3 rounded-full transition-all duration-300 ${
+                    isLastSlide
+                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      : "bg-white hover:bg-gray-100"
+                  }`}
                 >
                   <ArrowRight />
                 </button>
@@ -111,8 +133,8 @@ export const PainPointSection = () => {
           {/* image box */}
           <div className="relative">
             <AnimatePresence mode="wait">
-              <motion.img
-                key={activeSlide.image}
+              <MotionImage
+                key={activeSlide.title}
                 src={activeSlide.image}
                 alt={activeSlide.title}
                 initial={{ x: 40, opacity: 0 }}
@@ -120,6 +142,7 @@ export const PainPointSection = () => {
                 exit={{ x: -40, opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full h-full object-cover"
+                fill
               />
             </AnimatePresence>
           </div>
