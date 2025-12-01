@@ -1,4 +1,4 @@
-import ApartmentType from "./ApartmentType";
+import { ApartmentType } from "./ApartmentType";
 import Hero from "./Hero";
 const Apartments = () => {
   return (

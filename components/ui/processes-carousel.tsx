@@ -3,14 +3,13 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { ArrowUpRight } from "@phosphor-icons/react";
-import Image, { StaticImageData } from "next/image"; // ⬅️ IMPORT NEXT.JS IMAGE
+import Image, { StaticImageData } from "next/image";
 
-// 🛠️ FIX 2: Update the interface to use StaticImageData for Next.js imports
 interface ProcessItem {
   tagline?: string;
   title?: string;
   description?: string;
-  image?: StaticImageData; // Changed from string to StaticImageData
+  image?: StaticImageData;
   color?: string;
 }
 
@@ -131,9 +130,8 @@ export const ProcessesCarousel = ({
                 <Image
                   src={item.image}
                   alt={item.title || "Process illustration"}
-                  // Set width/height based on card size or use 'fill' if you set the container height
-                  width={400} // Example based on md:w-[400px] card size
-                  height={200} // Estimated display height for the image area
+                  width={400}
+                  height={200}
                   className="w-full h-auto object-cover"
                 />
               </div>

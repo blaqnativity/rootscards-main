@@ -18,10 +18,10 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="absolute bottom-20 w-full px-4">
+    <div className="w-full px-4">
       <form
         onSubmit={handleSearch}
-        className="relative z-10 bg-white rounded-lg shadow p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 md:max-w-[1200px] mx-auto w-[95%]"
+        className="relative z-10 bg-white rounded-lg shadow-sm p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 md:max-w-[1100px] mx-auto w-full"
       >
         {/* Location Input */}
         <div className="flex-1 w-full md:w-auto p-2 md:p-0">
