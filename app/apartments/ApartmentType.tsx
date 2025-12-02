@@ -11,14 +11,10 @@ const apartmentTypes = [
 
 export const ApartmentType = () => {
   return (
-    <section className="bg-white p-10 font-sans">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="hFour font-semibold tracking-tight text-gray-900">
-          Apartment Type
-        </h1>
+    <section className="bg-[#f6f6f6] py-15">
+      <div className="screen-container">
+        <TypeCarousel items={apartmentTypes} />
       </div>
-
-      <TypeCarousel items={apartmentTypes} />
     </section>
   );
 };

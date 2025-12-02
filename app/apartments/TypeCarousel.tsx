@@ -66,23 +66,29 @@ export default function TypeCarousel({ items }: TypeCarouselProps) {
 
   return (
     <>
-      {/* Navigation Arrows (Moved from Parent) */}
-      <div className="flex justify-end mb-6">
-        <div className="flex space-x-3">
-          <button
-            onClick={() => handleScroll("left")}
-            className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 transition disabled:opacity-50"
-            disabled={currentScroll <= 5}
-          >
-            {"<"}
-          </button>
-          <button
-            onClick={() => handleScroll("right")}
-            className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 transition disabled:opacity-50"
-            disabled={currentScroll >= scrollWidth - 5}
-          >
-            {">"}
-          </button>
+      <div className="flex justify-between items-center mb-6">
+        {/* header title */}
+        <div>
+          <h2 className="hFour font-semibold">Apartment Type</h2>
+        </div>
+        {/* Navigation Arrows (Moved from Parent) */}
+        <div className="flex justify-end">
+          <div className="flex space-x-3">
+            <button
+              onClick={() => handleScroll("left")}
+              className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 transition disabled:opacity-50"
+              disabled={currentScroll <= 5}
+            >
+              {"<"}
+            </button>
+            <button
+              onClick={() => handleScroll("right")}
+              className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-200 transition disabled:opacity-50"
+              disabled={currentScroll >= scrollWidth - 5}
+            >
+              {">"}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -113,7 +119,7 @@ export default function TypeCarousel({ items }: TypeCarouselProps) {
                   priority={index < 3}
                 />
               </div>
-              <p className="mt-2 text-base font-medium text-gray-800">
+              <p className="mt-2 text-xs font-medium text-gray-800">
                 {item.name}
               </p>
             </motion.div>
