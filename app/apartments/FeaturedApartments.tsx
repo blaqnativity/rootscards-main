@@ -13,7 +13,7 @@ const sideApartments = [
   { name: "Lovina Lore", rating: 5, imageUrl: "/side-lore.jpg" },
 ];
 
-export default function FeaturedApartmentsSection() {
+export default function FeaturedApartments() {
   return (
     <section className="screen-container mx-auto px-4 py-12 md:py-16 font-sans">
       {/* Section Title */}

@@ -374,28 +374,28 @@ export const spacesTwo: FeaturesProps[] = [
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    text: "Generate Lorem Ipsum...",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni repellendus, amet eaque odio voluptate facilis. Consequuntur repellendus error est facilis?",
     name: "Charles Dickens",
     role: "CTO, Accenture",
     avatar: images.avatar,
   },
   {
     id: 2,
-    text: "Lorem ipsum dolor sit amet...",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni repellendus, amet eaque odio voluptate facilis. Consequuntur repellendus error est facilis?",
     name: "Ada Lovelace",
     role: "Engineer, Microsoft",
     avatar: images.avatar,
   },
   {
     id: 3,
-    text: "Quis autem vel eum iure...",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni repellendus, amet eaque odio voluptate facilis. Consequuntur repellendus error est facilis?",
     name: "Alan Turing",
     role: "Researcher, Google DeepMind",
     avatar: images.avatar,
   },
   {
     id: 4,
-    text: "Sed ut perspiciatis unde omnis...",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni repellendus, amet eaque odio voluptate facilis. Consequuntur repellendus error est facilis?",
     name: "Grace Hopper",
     role: "Admiral, US Navy",
     avatar: images.avatar,

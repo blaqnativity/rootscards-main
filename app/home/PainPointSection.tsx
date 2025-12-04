@@ -65,7 +65,7 @@ export const PainPointSection = () => {
               href="https://app.rootscards.com/signup"
               className="flex items-center gap-1 bg-gray-100 w-fit px-5 py-2 rounded-full"
             >
-              <span className="hFour">Explore Experience</span>
+              <span className="hFive">Explore Experience</span>
               <ArrowUpRight size={18} className="text-gray-600" />
             </Link>
 

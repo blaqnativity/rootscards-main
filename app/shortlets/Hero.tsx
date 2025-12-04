@@ -1,21 +1,27 @@
-import { images, carouselTwo as carousels } from "@/constants";
+"use client";
+
+import { carouselTwo as carousels } from "@/constants";
+import Image from "next/image";
 import { ArrowRight } from "@phosphor-icons/react";
 import { BtnMain } from "@/components/BtnMain";
 import { BtnSecondary } from "@/components/BtnSecondary";
 import { scheduleDemo } from "@/services/useCalendly";
 import useCalendlyLoader from "@/hooks/useCalendlyLoader";
 import { Carousel } from "@/components/LogoCarousel";
+import bg from "@/public/gradientBg.png";
+
 export const Hero = () => {
   useCalendlyLoader();
   return (
-    <section
-      style={{
-        backgroundImage: `url(${images.gradientBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="py-10 md:py-15 relative h-screen w-full overflow-hidden"
-    >
+    <section className="py-10 md:py-15 relative h-screen w-full overflow-hidden">
+      <Image
+        src={bg}
+        alt="Background gradient pattern"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover -z-10"
+      />
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
         <div className="max-w-6xl px-4 md:px-8 space-y-10 text-center">

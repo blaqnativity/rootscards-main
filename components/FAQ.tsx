@@ -51,7 +51,7 @@ export const FAQ = ({
                   aria-expanded={isOpen}
                   onClick={() => handleToggle(index)}
                 >
-                  <span className="flex-1 hFour">{item.question}</span>
+                  <span className="flex-1 hFive">{item.question}</span>
                   <CaretDownIcon
                     size={20}
                     weight="bold"
