@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Star } from "@phosphor-icons/react";
 
 interface Apartment {
+  id: string;
   name: string;
   location: string;
   rating: number;
@@ -20,8 +22,12 @@ interface OtherApartmentCardProps {
 export default function OtherApartmentCard({
   apartment,
 }: OtherApartmentCardProps) {
+  const detailPageHref = `/apartments/${apartment.id}`;
   return (
-    <div className="relative w-full h-[400px] bg-gray-900 rounded-2xl overflow-hidden cursor-pointer transition duration-300">
+    <Link
+      href={detailPageHref}
+      className="relative w-full h-[400px] bg-gray-900 rounded-2xl overflow-hidden cursor-pointer transition duration-300"
+    >
       {/* Image Area */}
       <Image
         src={apartment.imageUrl}
@@ -56,6 +62,6 @@ export default function OtherApartmentCard({
           <p className="text-lg font-bold">{apartment.newPrice}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

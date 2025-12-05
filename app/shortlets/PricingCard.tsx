@@ -1,11 +1,3 @@
-import React from "react";
-
-/**
- * Renders an individual pricing card.
- * @param {object} props
- * @param {object} props.plan - The pricing plan data.
- * @param {string} props.currentPrice - The price string based on the selected period.
- */
 export const PricingCard = ({ plan, currentPrice }) => {
   return (
     <div
@@ -50,7 +42,7 @@ export const PricingCard = ({ plan, currentPrice }) => {
 
       {/* CTA Button */}
       <button
-        className={`w-full py-3 rounded-xl font-bold text-white transition-all duration-300 hover:opacity-90 mt-auto`}
+        className={`w-full py-3 rounded-full font-bold text-white transition-all duration-300 hover:opacity-90 mt-auto`}
         style={{ backgroundColor: plan.buttonBg }}
       >
         {plan.buttonText}

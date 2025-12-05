@@ -29,14 +29,16 @@ interface SimpleNavItem {
   icon?: React.FC<{ size?: number }>;
 }
 
+// 🏢 Apartments
 export interface Apartment {
-  img: string;
-  title: string;
+  id: string;
+  name: string;
   location: string;
   rating: number;
-  price: number;
   oldPrice: number;
+  newPrice: number;
   discount: number;
+  imageUrl: string;
 }
 
 // 🧩 Carousel

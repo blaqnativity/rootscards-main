@@ -1,4 +1,4 @@
-import { section } from "framer-motion/client";
+// import { section } from "framer-motion/client";
 import DealCard from "./DealCard";
 
 const weekendDeals = [

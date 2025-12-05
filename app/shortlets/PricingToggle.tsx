@@ -9,7 +9,7 @@ export const PricingToggle = ({ period, setPeriod }) => {
   const inactiveClasses = "text-gray-600 hover:bg-gray-50";
 
   return (
-    <div className="inline-flex bg-gray-200 p-1.5 rounded-full">
+    <div className="inline-flex bg-gray-200 gap-1 p-1.5 rounded-full">
       <button
         onClick={() => setPeriod("monthly")}
         className={`${commonClasses} ${
