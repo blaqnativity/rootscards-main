@@ -14,7 +14,7 @@ const Hero = () => {
       <div className={`relative w-full ${BANNER_IMAGE_HEIGHT} bg-gray-900`}>
         {/* Banner Image */}
         <Image
-          src="/banner.jpg"
+          src="/banner.png"
           alt="Discount background"
           fill
           className="object-cover"

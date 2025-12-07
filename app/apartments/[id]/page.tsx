@@ -3,6 +3,10 @@ import EventsCalendar from "./EventsCalendar";
 import Gallery from "./Gallery";
 import Description from "./Description";
 import Policy from "./Policy";
+import Amenities from "./Amenities";
+import DetailCard from "./DetailCard";
+import BookingDetails from "./BookingDetails";
+import Reviews from "./Reviews";
 
 // Define the interface for the component's props
 interface DetailsPageProps {
@@ -17,9 +21,13 @@ const DetailsPage = ({ apartment }: DetailsPageProps) => {
         <Gallery />
         <Description />
         <Policy />
+        <Reviews />
       </div>
       {/* Right Column: Booking Card and Calendar */}
       <div>
+        <DetailCard />
+        <Amenities />
+        <BookingDetails />
         <EventsCalendar />
       </div>
     </div>
