@@ -1,40 +1,71 @@
-import PlaceCard from "./PlaceCard";
+import Image from "next/image";
 
-const topPlaces = [
-  // Top Row - Large Cards
-  {
-    name: "Country Side 🌿",
-    imageUrl: "/place-countryside.jpg",
-    size: "large",
-  },
-  { name: "Mountains 🏔️", imageUrl: "/place-mountains.jpg", size: "large" },
-
-  // Bottom Row - Small Cards
-  { name: "City 🏙️", imageUrl: "/place-city.jpg", size: "small" },
-  { name: "Urban 🌆", imageUrl: "/place-urban.jpg", size: "small" },
-  {
-    name: "Central Business District 🏢",
-    imageUrl: "/place-cbd.jpg",
-    size: "small",
-  },
+const places = [
+  { id: 1, title: "Country Side 🌳", imageUrl: "/images/countryside.jpg" },
+  { id: 2, title: "Mountains ⛰️", imageUrl: "/images/mountains.jpg" },
+  { id: 3, title: "City 🏙️", imageUrl: "/images/city.jpg" },
+  { id: 4, title: "Urban 🧱", imageUrl: "/images/urban.jpg" },
+  { id: 5, title: "Central Business District 🗽", imageUrl: "/images/cbd.jpg" },
 ];
 
-export default function TopPlaces() {
+const TopPlacesSection = () => {
   return (
-    <section className="bg-[#f6f6f6] py-15">
-      <div className="screen-container">
-        {/* Section Title */}
-        <h1 className="hFour font-semibold tracking-tight text-gray-900 mb-8">
-          Top Places to Be
-        </h1>
+    <section className="p-4 md:p-8">
+      <h2 className="text-4xl font-semibold mb-6">Top Places to Be</h2>
 
-        {/* Place Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {topPlaces.map((place, index) => (
-            <PlaceCard key={index} place={place} />
-          ))}
-        </div>
+      {/* GRID CONTAINER:
+        - Mobile: grid-cols-1 (Full stacking is best for small screens)
+        - Desktop/Tablet: grid-cols-6 to allow for clean 3x3 division (3 cols on the bottom row)
+      */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:h-[30rem]">
+        {" "}
+        {/* md:h-[30rem] sets a fixed height to contain the bento grid */}
+        {places.map((place, index) => {
+          // Determine specific span classes for the bento layout
+          let spanClasses = "";
+
+          if (index === 0 || index === 1) {
+            // First two cards (Country Side, Mountains): Each takes half the width (3 out of 6 columns)
+            spanClasses = "md:col-span-3 h-56 md:h-full";
+          } else {
+            // Last three cards (City, Urban, CBD): Each takes one-third the width (2 out of 6 columns)
+            spanClasses = "md:col-span-2 h-56 md:h-full";
+          }
+
+          return (
+            <div
+              key={place.id}
+              className={`
+                relative overflow-hidden rounded-xl 
+                transition duration-300 ease-in-out transform 
+                ${spanClasses}
+              `}
+            >
+              {/* Image Component */}
+              <Image
+                src={place.imageUrl}
+                alt={place.title}
+                fill={true}
+                className="object-cover transition duration-300 hover:scale-[1.03]"
+                sizes="(max-width: 768px) 100vw, 33vw" // Optimize image loading based on 3-col maximum width
+                loading="lazy"
+                // The z-10 ensures the image sits slightly above the default stacking context
+              />
+
+              {/* Gradient Overlay for Text Readability */}
+              {/* Note: Tailwind gradient is 'bg-gradient-to-t' not 'bg-linear-to-t' */}
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
+
+              {/* Title Text (use z-20 to ensure text is above image and overlay) */}
+              <div className="absolute bottom-4 left-4 text-white z-20">
+                <h3 className="text-xl font-bold">{place.title}</h3>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
-}
+};
+
+export default TopPlacesSection;

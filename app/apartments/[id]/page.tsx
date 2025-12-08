@@ -7,6 +7,8 @@ import Amenities from "./Amenities";
 import DetailCard from "./DetailCard";
 import BookingDetails from "./BookingDetails";
 import Reviews from "./Reviews";
+import DealsHeader from "@/components/nav/DealsHeader";
+import Footer from "../Footer";
 
 // Define the interface for the component's props
 interface DetailsPageProps {
@@ -15,22 +17,26 @@ interface DetailsPageProps {
 
 const DetailsPage = ({ apartment }: DetailsPageProps) => {
   return (
-    <div className="screen-container grid grid-cols-1 gap-8 md:grid-cols-[65%_35%] py-6">
-      {/* Left Column: Media and Descriptions */}
-      <div className="space-y-10">
-        <Gallery />
-        <Description />
-        <Policy />
-        <Reviews />
+    <>
+      <DealsHeader />
+      <div className="screen-container grid grid-cols-1 gap-8 md:grid-cols-[65%_35%] py-6">
+        {/* Left Column: Media and Descriptions */}
+        <div className="space-y-10">
+          <Gallery />
+          <Description />
+          <Policy />
+          <Reviews />
+        </div>
+        {/* Right Column: Booking Card and Calendar */}
+        <div>
+          <DetailCard />
+          <Amenities />
+          <BookingDetails />
+          <EventsCalendar />
+        </div>
       </div>
-      {/* Right Column: Booking Card and Calendar */}
-      <div>
-        <DetailCard />
-        <Amenities />
-        <BookingDetails />
-        <EventsCalendar />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

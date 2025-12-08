@@ -6,7 +6,7 @@ const Reviews = () => {
       message:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
       ratings: "⭐⭐⭐⭐",
-      date: "12/12/25",
+      date: "12:02pm - 12/12/25",
     },
     {
       avatarUrl: "",
@@ -14,7 +14,7 @@ const Reviews = () => {
       message:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
       ratings: "⭐⭐⭐⭐",
-      date: "12/12/25",
+      date: "12:02pm - 12/12/25",
     },
     {
       avatarUrl: "",
@@ -22,7 +22,7 @@ const Reviews = () => {
       message:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
       ratings: "⭐⭐⭐⭐",
-      date: "12/12/25",
+      date: "12:02pm - 12/12/25",
     },
     {
       avatarUrl: "",
@@ -30,7 +30,7 @@ const Reviews = () => {
       message:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
       ratings: "⭐⭐⭐⭐",
-      date: "12/12/25",
+      date: "12:02pm - 12/12/25",
     },
   ];
   return (
@@ -45,13 +45,19 @@ const Reviews = () => {
             {/* image */}
             <div></div>
 
-            <div className="space-y-3">
+            <div className="space-y-3 p-2">
               {/* user */}
               <h2 className="font-semibold text-[#0F172A]">{info.user}</h2>
               {/* message */}
               <p className="text-[#666666] text-sm mt-2">{info.message}</p>
               {/* border */}
-              <div className="bg-[#D4DEED] h-px rounded-full"></div>
+              <div className="bg-[#D4DEED] h-px rounded-full w-[90%] text-center"></div>
+              <div className="grid space-y-3">
+                {/* ratings*/}
+                <span>{info.ratings}</span>
+                {/* date */}
+                <span className="text-[#666666] text sm">{info.date}</span>
+              </div>
             </div>
           </div>
         ))}

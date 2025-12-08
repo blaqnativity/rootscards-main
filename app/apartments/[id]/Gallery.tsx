@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ArrowLeft } from "@phosphor-icons/react";
 import bg from "@/public/kitchen.png";
 import pr from "@/public/parlour.png";
 import tv from "@/public/tvroom.png";
@@ -20,6 +22,7 @@ const photos = [
 ];
 
 const Gallery = ({ images = photos }) => {
+  const router = useRouter();
   // Initialize state with the full object
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
@@ -44,6 +47,13 @@ const Gallery = ({ images = photos }) => {
           objectFit="cover"
           priority
         />
+        {/* back button */}
+        <div
+          onClick={() => router.back()} // Added navigation logic
+          className="absolute top-4 left-4 z-10 bg-black/40 backdrop-blur-sm rounded-full p-2 cursor-pointer"
+        >
+          <ArrowLeft size={32} color="white" />
+        </div>
       </div>
 
       {/* 2. Thumbnail Strip */}

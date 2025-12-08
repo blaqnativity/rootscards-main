@@ -5,6 +5,7 @@ import Hero from "./Hero";
 import TrendingApartments from "./TrendingApartments";
 import OtherApartmentsSection from "./OtherApartmentsSection";
 import TopPlaces from "./TopPlaces";
+import Footer from "./Footer";
 const Apartments = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const Apartments = () => {
       <TrendingApartments />
       <TopPlaces />
       <OtherApartmentsSection />
+      <Footer />
     </div>
   );
 };
