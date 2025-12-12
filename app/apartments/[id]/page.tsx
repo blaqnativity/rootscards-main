@@ -1,4 +1,9 @@
-import type { Apartment } from "@/constants";
+"use client";
+
+import { ApartmentContext } from "@/context/ApartmentContext";
+import { otherApartments } from "../apartments";
+import { useParams } from "next/navigation";
+
 import EventsCalendar from "./EventsCalendar";
 import Gallery from "./Gallery";
 import Description from "./Description";
@@ -8,35 +13,38 @@ import DetailCard from "./DetailCard";
 import BookingDetails from "./BookingDetails";
 import Reviews from "./Reviews";
 import DealsHeader from "@/components/nav/DealsHeader";
-import Footer from "../Footer";
+import Footer from "../../../components/nav/FooterSec";
 
-// Define the interface for the component's props
-interface DetailsPageProps {
-  apartment: Apartment;
-}
+const DetailsPage = () => {
+  const { id } = useParams();
 
-const DetailsPage = ({ apartment }: DetailsPageProps) => {
+  // Find apartment matching the id
+  const apartment = otherApartments.find((apt) => apt.id.toString() === id);
+
   return (
-    <>
-      <DealsHeader />
-      <div className="screen-container grid grid-cols-1 gap-8 md:grid-cols-[65%_35%] py-6">
-        {/* Left Column: Media and Descriptions */}
-        <div className="space-y-10">
-          <Gallery />
-          <Description />
-          <Policy />
-          <Reviews />
+    <ApartmentContext.Provider value={apartment}>
+      <>
+        <DealsHeader />
+        <div className="screen-container grid grid-cols-1 gap-8 md:grid-cols-[65%_35%] py-6">
+          {/* Left Column */}
+          <div className="space-y-10">
+            <Gallery />
+            <Description />
+            <Policy />
+            <Reviews />
+          </div>
+
+          {/* Right Column */}
+          <div>
+            <DetailCard />
+            <Amenities />
+            <BookingDetails />
+            <EventsCalendar />
+          </div>
         </div>
-        {/* Right Column: Booking Card and Calendar */}
-        <div>
-          <DetailCard />
-          <Amenities />
-          <BookingDetails />
-          <EventsCalendar />
-        </div>
-      </div>
-      <Footer />
-    </>
+        <Footer />
+      </>
+    </ApartmentContext.Provider>
   );
 };
 

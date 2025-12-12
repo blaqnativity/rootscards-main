@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import TrendingApartments from "./TrendingApartments";
 import OtherApartmentsSection from "./OtherApartmentsSection";
 import TopPlaces from "./TopPlaces";
-import Footer from "./Footer";
+import Footer from "../../components/nav/FooterSec";
 const Apartments = () => {
   return (
     <div>

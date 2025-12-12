@@ -31,7 +31,7 @@ export default function MobMenu({ Menus }: { Menus: MenuItem[] }) {
 
   return (
     <div>
-      <button className="lg:hidden z-[999] relative" onClick={toggleDrawer}>
+      <button className="lg:hidden z-999 relative" onClick={toggleDrawer}>
         {isOpen ? <X /> : <Menu />}
       </button>
 

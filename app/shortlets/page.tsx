@@ -1,16 +1,20 @@
 import { Features } from "./Feature";
 import { Hero } from "./Hero";
 import { Steps } from "./Steps";
-import { PricingSection } from "./PricingSection";
+import Pricing from "./Pricing";
+import HeaderSec from "@/components/nav/HeaderSec";
+import Footer from "@/components/nav/FooterSec";
 
 const Shortlets = () => {
   return (
-    <div>
+    <>
+      <HeaderSec />
       <Hero />
       <Features />
       <Steps />
-      <PricingSection />
-    </div>
+      <Pricing />
+      <Footer />
+    </>
   );
 };
 

@@ -10,25 +10,20 @@ const places = [
 
 const TopPlacesSection = () => {
   return (
-    <section className="p-4 md:p-8">
+    <section className="screen-container p-4 md:p-8">
       <h2 className="text-4xl font-semibold mb-6">Top Places to Be</h2>
 
       {/* GRID CONTAINER:
         - Mobile: grid-cols-1 (Full stacking is best for small screens)
         - Desktop/Tablet: grid-cols-6 to allow for clean 3x3 division (3 cols on the bottom row)
       */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:h-[30rem]">
-        {" "}
-        {/* md:h-[30rem] sets a fixed height to contain the bento grid */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:h-120">
         {places.map((place, index) => {
-          // Determine specific span classes for the bento layout
           let spanClasses = "";
 
           if (index === 0 || index === 1) {
-            // First two cards (Country Side, Mountains): Each takes half the width (3 out of 6 columns)
             spanClasses = "md:col-span-3 h-56 md:h-full";
           } else {
-            // Last three cards (City, Urban, CBD): Each takes one-third the width (2 out of 6 columns)
             spanClasses = "md:col-span-2 h-56 md:h-full";
           }
 
@@ -47,16 +42,12 @@ const TopPlacesSection = () => {
                 alt={place.title}
                 fill={true}
                 className="object-cover transition duration-300 hover:scale-[1.03]"
-                sizes="(max-width: 768px) 100vw, 33vw" // Optimize image loading based on 3-col maximum width
+                sizes="(max-width: 768px) 100vw, 33vw"
                 loading="lazy"
-                // The z-10 ensures the image sits slightly above the default stacking context
               />
 
-              {/* Gradient Overlay for Text Readability */}
-              {/* Note: Tailwind gradient is 'bg-gradient-to-t' not 'bg-linear-to-t' */}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
 
-              {/* Title Text (use z-20 to ensure text is above image and overlay) */}
               <div className="absolute bottom-4 left-4 text-white z-20">
                 <h3 className="text-xl font-bold">{place.title}</h3>
               </div>

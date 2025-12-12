@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { Star } from "@phosphor-icons/react";
 
@@ -12,7 +12,7 @@ interface Apartment {
   oldPrice: string;
   newPrice: string;
   discount: string;
-  imageUrl: string;
+  imageUrl: string | StaticImageData;
 }
 
 interface OtherApartmentCardProps {
