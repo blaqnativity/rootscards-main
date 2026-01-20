@@ -1,12 +1,18 @@
 import TypeCarousel from "./TypeCarousel";
+import loft from "@/public/loft.png";
+import studio from "@/public/studio.png";
+import duplex from "@/public/duplex.png";
+import garden from "@/public/garden.png";
+import basement from "@/public/basement.png";
+import penthouse from "@/public/penthouse.png";
 
 const apartmentTypes = [
-  { name: "Studio", imageUrl: "https://i.imgur.com/Gj9c9xY.png" },
-  { name: "Loft", imageUrl: "https://i.imgur.com/v8tT9oX.png" },
-  { name: "Duplex", imageUrl: "https://i.imgur.com/R3xM3qS.png" },
-  { name: "Garden apartment", imageUrl: "https://i.imgur.com/W2d5w0l.png" },
-  { name: "Penthouse", imageUrl: "https://i.imgur.com/gYf7yL9.png" },
-  { name: "Basement apartment", imageUrl: "https://i.imgur.com/yv9bL0n.png" },
+  { name: "Studio", imageUrl: studio },
+  { name: "Loft", imageUrl: loft },
+  { name: "Duplex", imageUrl: duplex },
+  { name: "Garden apartment", imageUrl: garden },
+  { name: "Penthouse", imageUrl: penthouse },
+  { name: "Basement apartment", imageUrl: basement },
 ];
 
 export const ApartmentType = () => {

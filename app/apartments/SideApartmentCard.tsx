@@ -27,7 +27,7 @@ const StarRating = ({ rating }: { rating: number }) => {
 export default function SideApartmentCard({ apartment }: SideCardProps) {
   return (
     // Card Container
-    <div className="relative w-full h-32 rounded-xl overflow-hidden cursor-pointer transition">
+    <div className="relative w-full h-36 rounded-xl overflow-hidden cursor-pointer transition">
       {/* Background Image */}
       <Image
         src={apartment.imageUrl}

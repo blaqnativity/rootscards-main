@@ -1,13 +1,14 @@
 "use client";
 
+import { StaticImageData } from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
 
-interface ApartmentType {
+type ApartmentType = {
   name: string;
-  imageUrl: string;
-}
+  imageUrl: StaticImageData;
+};
 
 interface TypeCarouselProps {
   items: ApartmentType[];

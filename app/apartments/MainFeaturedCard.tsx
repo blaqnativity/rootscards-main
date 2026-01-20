@@ -10,7 +10,6 @@ interface MainCardProps {
 
 export default function MainFeaturedCard({ apartment }: MainCardProps) {
   return (
-    // The container uses a rounded border and relative positioning
     <div className="relative w-full h-[480px] rounded-3xl overflow-hidden">
       {/* Background Image */}
       <Image

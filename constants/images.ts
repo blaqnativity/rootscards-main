@@ -17,10 +17,6 @@ import plg from "@/public/images/plg.svg";
 import rfl from "@/public/images/rfl.svg";
 import rsvp from "@/public/images/rsvp.svg";
 import clb from "@/public/images/clb.svg";
-import checkin from "@/public/images/check-in.svg";
-import kyc from "@/public/images/kyc.svg";
-import access from "@/public/images/access.svg";
-import checkout from "@/public/images/checkout.svg";
 import lock from "@/public/images/lock.svg";
 import tasks from "@/public/images/tasks.svg";
 import noise from "@/public/images/noise.svg";
@@ -83,10 +79,6 @@ export const images = {
   rfl,
   rsvp,
   clb,
-  checkin,
-  kyc,
-  access,
-  checkout,
   lock,
   tasks,
   noise,

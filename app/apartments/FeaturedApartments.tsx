@@ -1,16 +1,19 @@
 import MainFeaturedCard from "./MainFeaturedCard";
 import SideApartmentCard from "./SideApartmentCard";
+import hero from "@/public/kitchen.png";
+import side from "@/public/parlour.png";
+import parlor from "@/public/parlour2.png";
 
 const featuredApartment = {
   name: "Mi Casa Delivo",
   description: "Lorem ipsum",
-  imageUrl: "/featured-delivo.jpg",
+  imageUrl: hero,
 };
 
 const sideApartments = [
-  { name: "Damjuri Lovada", rating: 4.5, imageUrl: "/side-lovada.jpg" },
-  { name: "Howali Kebbi", rating: 5, imageUrl: "/side-kebbi.jpg" },
-  { name: "Lovina Lore", rating: 5, imageUrl: "/side-lore.jpg" },
+  { name: "Damjuri Lovada", rating: 4.5, imageUrl: side },
+  { name: "Howali Kebbi", rating: 5, imageUrl: parlor },
+  { name: "Lovina Lore", rating: 5, imageUrl: side },
 ];
 
 export default function FeaturedApartments() {

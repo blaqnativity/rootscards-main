@@ -1,19 +1,17 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
+import bg from "@/public/videoPrev.svg";
+import line from "@/public/line.svg";
 import { Play } from "@phosphor-icons/react";
 
-// NOTE: Replace these placeholder objects with actual imported image files
-const ASSETS = {
+const assets = {
   videoPrev: {
-    src: "https://via.placeholder.com/1200x600.png?text=Demo+Video+Thumbnail",
     alt: "Demo Video Thumbnail",
     width: 1200,
     height: 600,
   },
   line: {
-    src: "https://via.placeholder.com/200x20.png?text=Decorative+Line",
     alt: "Decorative Line",
     width: 200,
     height: 20,
@@ -36,13 +34,11 @@ export const StepsVideoPlayer = () => {
       {/* Thumbnail (shown only if video not open) */}
       {!isOpen && (
         <>
-          {/* Using Next.js Image Component */}
           <Image
-            src={ASSETS.videoPrev.src}
-            alt={ASSETS.videoPrev.alt}
-            width={ASSETS.videoPrev.width}
-            height={ASSETS.videoPrev.height}
-            // Retained the specific class name pattern from your original code
+            src={bg}
+            alt={assets.videoPrev.alt}
+            width={assets.videoPrev.width}
+            height={assets.videoPrev.height}
             className="w-full h-[500px] md:h-[600px] rounded-2xl object-cover"
             priority
           />
@@ -62,15 +58,13 @@ export const StepsVideoPlayer = () => {
             <p className="hThree leading-8 md:leading-14">
               “How Rootscard eliminates wait time and improves user{" "}
               <div className="ml-3 relative inline-block">
-                {/* Using Next.js Image Component for the decorative line */}
                 <Image
-                  src={ASSETS.line.src}
-                  alt={ASSETS.line.alt}
-                  width={ASSETS.line.width}
-                  height={ASSETS.line.height}
+                  src={line}
+                  alt={assets.line.alt}
+                  width={assets.line.width}
+                  height={assets.line.height}
                   className="-z-20 w-40 md:w-90 -translate-x-3 translate-y-0.5 md:-translate-x-5 md:translate-y-2 h-auto absolute pointer-events-none"
                 />
-                {/* The ending quote mark was outside the span in the older version, but I've kept the structure */}
                 <span className="relative z-0">experience</span>
               </div>
             </p>

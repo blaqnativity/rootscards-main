@@ -13,7 +13,8 @@ import DetailCard from "./DetailCard";
 import BookingDetails from "./BookingDetails";
 import Reviews from "./Reviews";
 import DealsHeader from "@/components/nav/DealsHeader";
-import Footer from "../../../components/nav/FooterSec";
+import Footer from "@/components/nav/FooterSec";
+import Map from "./Map";
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const DetailsPage = () => {
             <Gallery />
             <Description />
             <Policy />
+            <Map />
             <Reviews />
           </div>
 
