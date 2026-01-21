@@ -1,7 +1,7 @@
 import cowry from "@/public/images/cowry.svg";
 import slack from "@/public/images/slack.svg";
 import whatsapp from "@/public/images/whatsapp.svg";
-import wechat from "@/public/images/whatsapp (2).svg";
+import wechat from "@/public/images/whatsapp-line.svg";
 import inter from "@/public/images/inter.svg";
 import hubspot from "@/public/images/hubspot.svg";
 import tix from "@/public/images/Tix-Africa.svg";

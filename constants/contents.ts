@@ -1,10 +1,7 @@
-// ============================================================
-// 🖼️ IMAGES
-// ============================================================
 import { images } from "@/constants";
 
 // ============================================================
-// 🔢 TYPES & INTERFACES
+// TYPES & INTERFACES
 // ============================================================
 // MENU ITEMS
 export interface SubNavItem {
@@ -29,7 +26,7 @@ interface SimpleNavItem {
   icon?: React.FC<{ size?: number }>;
 }
 
-// 🏢 Apartments
+// Apartments
 export interface Apartment {
   id: string;
   name: string;
@@ -41,13 +38,13 @@ export interface Apartment {
   imageUrl: string;
 }
 
-// 🧩 Carousel
+// Carousel
 export type CarouselLogo = {
   src: string;
   alt: string;
 };
 
-// ⚙️ Processes / Waitlist
+// Processes / Waitlist
 export interface Processes {
   tagline?: string;
   title?: string;
@@ -62,7 +59,7 @@ export type WaitlistFormData = {
   email: string;
 };
 
-// ✨ Features
+// Features
 export interface FeaturesProps {
   image?: string;
   title?: string;
@@ -70,7 +67,7 @@ export interface FeaturesProps {
   color?: string;
 }
 
-// 💬 Testimonials
+// Testimonials
 export interface Testimonial {
   id: number;
   text: string;
@@ -79,7 +76,7 @@ export interface Testimonial {
   avatar: string;
 }
 
-// 🎥 Video Cards
+// Video Cards
 export interface VideoCard {
   badgeIcon?: string;
   badgeText: string;
@@ -95,14 +92,14 @@ export interface VideoCard {
   };
 }
 
-// 🪜 Step data
+// Step data
 export interface Step {
   tagline?: string;
   description?: string;
 }
 
 // ============================================================
-// 🎠 CAROUSEL SLIDES
+// CAROUSEL SLIDES
 // ============================================================
 
 export const carouselOne: CarouselLogo[] = [
@@ -299,7 +296,7 @@ export const cards: FeaturesProps[] = [
 
 export const properties: FeaturesProps[] = [
   {
-    image: images.whatsapp,
+    image: images.wechat,
     title: "WhatsApp self-check-in",
     desc: "OTP, selfie + ID...",
     color: "#25D366",
