@@ -15,7 +15,7 @@ interface DealCardProps {
   deal: Deal;
 }
 
-export default function DealCard({ deal }: DealCardProps) {
+export default function TopDeal({ deal }: DealCardProps) {
   return (
     <div className="shrink-0 w-80 bg-white rounded-xl transition duration-300">
       {/* Image Area */}

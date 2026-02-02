@@ -19,9 +19,7 @@ interface OtherApartmentCardProps {
   apartment: Apartment;
 }
 
-export default function OtherApartmentCard({
-  apartment,
-}: OtherApartmentCardProps) {
+export default function OtherApartment({ apartment }: OtherApartmentCardProps) {
   const detailPageHref = `/apartments/${apartment.id}`;
   return (
     <Link

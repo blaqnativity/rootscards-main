@@ -45,7 +45,7 @@ export default function MobMenu({ Menus }: { Menus: MenuItem[] }) {
             const isClicked = clicked === i;
             const hasSubMenu = subMenu?.length;
             return (
-              <li key={name} className="">
+              <li key={name}>
                 <span
                   className="flex-center-between p-4 hover:bg-white/5 rounded-md cursor-pointer relative"
                   onClick={() => setClicked(isClicked ? null : i)}

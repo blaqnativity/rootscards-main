@@ -1,9 +1,9 @@
 import { ApartmentType } from "./ApartmentType";
 import FeaturedApartments from "./FeaturedApartments";
-import DealsSection from "./DealsSection";
+import TopDeals from "./TopDeals";
 import Hero from "./Hero";
 import TrendingApartments from "./TrendingApartments";
-import OtherApartmentsSection from "./OtherApartmentsSection";
+import OtherApartments from "./OtherApartments";
 import TopPlaces from "./TopPlaces";
 import Footer from "../../components/nav/FooterSec";
 const Apartments = () => {
@@ -12,10 +12,10 @@ const Apartments = () => {
       <Hero />
       <ApartmentType />
       <FeaturedApartments />
-      <DealsSection />
+      <TopDeals />
       <TrendingApartments />
       <TopPlaces />
-      <OtherApartmentsSection />
+      <OtherApartments />
       <Footer />
     </div>
   );
