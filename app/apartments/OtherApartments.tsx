@@ -1,35 +1,16 @@
 import OtherApartment from "./OtherApartment";
 import { fetchFromAPI } from "@/utils/api";
+import { fetchApartmentListing } from "@/lib/apartmentUtils";
 
-async function fetchApartmentListings() {
-  try {
-    const data = await fetchFromAPI(
-      "https://api.therootshive.com/v3/rootscard/appshortlets",
-    );
-
-    if (!Array.isArray(data)) {
-      console.log("Apartments data is not an array:", data);
-      return [];
-    }
-
-    return data.map((apt: any) => ({
-      id: apt.id || apt._id,
-      name: apt.name || apt.title,
-      location: apt.location || apt.address,
-      rating: apt.rating || 0,
-      oldPrice: apt.oldPrice || apt.original_price,
-      newPrice: apt.newPrice || apt.price,
-      discount: apt.discount || "0% off",
-      imageUrl: apt.imageUrl || apt.image || apt.thumbnail,
-    }));
-  } catch (error) {
-    console.error("Error fetching apartments:", error);
-    return [];
-  }
+async function fetchOtherApartments() {
+  return fetchApartmentListing(
+    "https://api.therootshive.com/v3/rootscard/appshortlets",
+    fetchFromAPI,
+  );
 }
 
 export default async function OtherApartments() {
-  const otherApartments = await fetchApartmentListings();
+  const otherApartments = await fetchOtherApartments();
 
   return (
     <section className="py-12">

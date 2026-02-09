@@ -1,29 +1,12 @@
 import TopDeal from "./TopDeal";
 import { fetchFromAPI } from "@/utils/api";
+import { fetchApartmentListing } from "@/lib/apartmentUtils";
 
 async function fetchTopDeals() {
-  try {
-    const deals = await fetchFromAPI(
-      "https://api.therootshive.com/v3/rootscard/topdeals",
-    );
-
-    if (!Array.isArray(deals)) {
-      console.log("Deals data is not an array:", deals);
-      return [];
-    }
-
-    return deals.map((deal: any) => ({
-      name: deal.name || deal.title,
-      location: deal.location || deal.address,
-      rating: deal.rating || 0,
-      oldPrice: deal.oldPrice || deal.original_price,
-      newPrice: deal.newPrice || deal.price,
-      imageUrl: deal.imageUrl || deal.image || deal.thumbnail,
-    }));
-  } catch (error) {
-    console.error("Error fetching top deals:", error);
-    return [];
-  }
+  return fetchApartmentListing(
+    "https://api.therootshive.com/v3/rootscard/topdeals",
+    fetchFromAPI,
+  );
 }
 
 export default async function TopDeals() {
@@ -51,8 +34,8 @@ export default async function TopDeals() {
           <p className="text-gray-500">No deals available at the moment.</p>
         ) : (
           <div className="flex space-x-6 overflow-x-auto pb-4 scrollbar-hide">
-            {weekendDeals.map((deal, index) => (
-              <TopDeal key={index} deal={deal} />
+            {weekendDeals.map((deal) => (
+              <TopDeal key={deal.id} deal={deal} />
             ))}
           </div>
         )}

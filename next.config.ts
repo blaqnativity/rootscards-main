@@ -23,15 +23,8 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "api.therootshive.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.therootshive.com",
-        port: "",
-        pathname: "/**",
+        hostname: "res.cloudinary.com",
+        pathname: "/therootshive/**",
       },
     ],
   },
