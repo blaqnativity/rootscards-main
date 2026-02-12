@@ -39,7 +39,6 @@ export default function OtherApartment({ apartment }: OtherApartmentCardProps) {
       <div className="absolute top-4 left-4 bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full z-10">
         {apartment.discount}
       </div>
-
       {/* Content Overlay at the Bottom */}
       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
         {/* Main Details */}

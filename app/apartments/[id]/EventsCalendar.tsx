@@ -10,7 +10,19 @@ type Value = ValuePiece | [ValuePiece, ValuePiece];
 const EventsCalendar = () => {
   const [value, onChange] = useState<Value>(new Date());
 
-  return <Calendar onChange={onChange} value={value} />;
+  return (
+    <div className="p-6">
+      <h3 className="mb-4 hFive font-semibold">Availability</h3>
+      <div className="custom-calendar">
+        <Calendar
+          onChange={onChange}
+          value={value}
+          minDate={new Date()} // Prevent booking past dates
+          className="border-0 rounded-2xl shadow-sm"
+        />
+      </div>
+    </div>
+  );
 };
 
 export default EventsCalendar;

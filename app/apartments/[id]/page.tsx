@@ -1,53 +1,24 @@
-"use client";
+import { fetchFromAPI } from "@/utils/api";
+import { fetchApartmentById } from "@/lib/apartmentUtils";
+import { notFound } from "next/navigation";
+import DetailsPageClient from "./DetailsPageClient";
 
-import { ApartmentContext } from "@/context/ApartmentContext";
-import { otherApartments } from "../apartments";
-import { useParams } from "next/navigation";
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
-import EventsCalendar from "./EventsCalendar";
-import Gallery from "./Gallery";
-import Description from "./Description";
-import Policy from "./Policy";
-import Amenities from "./Amenities";
-import DetailCard from "./DetailCard";
-import BookingDetails from "./BookingDetails";
-import Reviews from "./Reviews";
-import DealsHeader from "@/components/nav/DealsHeader";
-import Footer from "@/components/nav/FooterSec";
-import Map from "./Map";
+export default async function Page({ params }: PageProps) {
+  const { id } = params;
 
-const DetailsPage = () => {
-  const { id } = useParams();
+  // Fetch apartment data from API
+  const apartment = await fetchApartmentById(id, fetchFromAPI);
 
-  // Find apartment matching the id
-  const apartment = otherApartments.find((apt) => apt.id.toString() === id);
+  // Show 404 if apartment not found
+  if (!apartment) {
+    notFound();
+  }
 
-  return (
-    <ApartmentContext.Provider value={apartment}>
-      <>
-        <DealsHeader />
-        <div className="screen-container grid grid-cols-1 gap-8 md:grid-cols-[65%_35%] py-6">
-          {/* Left Column */}
-          <div className="space-y-10">
-            <Gallery />
-            <Description />
-            <Policy />
-            <Map />
-            <Reviews />
-          </div>
-
-          {/* Right Column */}
-          <div>
-            <DetailCard />
-            <Amenities />
-            <BookingDetails />
-            <EventsCalendar />
-          </div>
-        </div>
-        <Footer />
-      </>
-    </ApartmentContext.Provider>
-  );
-};
-
-export default DetailsPage;
+  return <DetailsPageClient apartment={apartment} />;
+}

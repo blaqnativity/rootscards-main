@@ -15,6 +15,21 @@ export function getImageUrl(data: any): string {
   );
 }
 
+// Create URL-friendly slug from title and id
+export function createSlug(title: string, id: number | string): string {
+  const slugTitle = title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `${slugTitle}-${id}`;
+}
+
+// Extract ID from slug (e.g., "luxury-one-bed-115219" -> "115219")
+export function getIdFromSlug(slug: string): string {
+  const parts = slug.split("-");
+  return parts[parts.length - 1];
+}
+
 // Map event to apartment format
 export function mapToApartment(event: any, hasJson: boolean = true) {
   let data;
@@ -25,9 +40,13 @@ export function mapToApartment(event: any, hasJson: boolean = true) {
     data = event;
   }
 
+  const title = data.title || data.name;
+  const id = event.id || event._id;
+
   return {
-    id: event.id || event._id,
-    name: data.title || data.name,
+    id,
+    slug: createSlug(title, id),
+    name: title,
     location: data.address || data.location,
     rating: data.rating || 0,
     oldPrice: data.price_per_night_ngn || data.oldPrice || data.original_price,
@@ -60,4 +79,71 @@ export async function fetchApartmentListing(
     console.error("Error fetching apartment listing:", error);
     return [];
   }
+}
+
+// Fetch single apartment by ID for details page
+export async function fetchApartmentById(
+  id: string,
+  fetchFromAPI: (url: string) => Promise<any>,
+) {
+  try {
+    const response = await fetchFromAPI(
+      "https://api.therootshive.com/v3/rootscard/appshortlets",
+    );
+
+    const events = response?.shortlet_events || [];
+
+    if (!Array.isArray(events)) {
+      console.log("Data is not an array:", events);
+      return null;
+    }
+
+    // Find the apartment by id
+    const event = events.find((e: any) => e.id.toString() === id);
+
+    if (!event) {
+      return null;
+    }
+
+    // Parse and return full apartment details
+    const parsedJson = JSON.parse(event.json);
+    const aptData = parsedJson.d.evtData;
+
+    return {
+      id: event.id,
+      name: aptData.title,
+      location: aptData.address,
+      city: aptData.city,
+      rating: 0,
+      price_per_night: aptData.price_per_night_ngn,
+      caution_fee: aptData.caution_fee_ngn,
+      discount_percent: aptData.discount_percent,
+      guests_max: aptData.guests_max,
+      bedrooms: aptData.bedrooms,
+      beds: aptData.beds,
+      bathrooms: aptData.bathrooms,
+      amenities: aptData.amenities || [],
+      tags: aptData.tags || [],
+      description: aptData.description || "",
+      images:
+        aptData.images?.map((img: any) => ({
+          url: img.secure_url || img.url,
+          width: img.width,
+          height: img.height,
+        })) || [],
+      created_at: aptData.created_at,
+    };
+  } catch (error) {
+    console.error("Error fetching apartment by ID:", error);
+    return null;
+  }
+}
+
+// Fetch single apartment by slug
+export async function fetchApartmentBySlug(
+  slug: string,
+  fetchFromAPI: (url: string) => Promise<any>,
+) {
+  const id = getIdFromSlug(slug);
+  return fetchApartmentById(id, fetchFromAPI);
 }

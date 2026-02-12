@@ -1,63 +1,88 @@
+"use client";
+
+import Image from "next/image";
+import { Star } from "@phosphor-icons/react";
+
+// Mock reviews - you can later fetch from API
 const Reviews = () => {
   const reviews = [
     {
-      avatarUrl: "",
+      avatarUrl: "/avatars/avatar1.png",
       user: "Sam Larry",
       message:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
-      ratings: "⭐⭐⭐⭐",
-      date: "12:02pm - 12/12/25",
+        "Amazing place! Very clean and modern. The host was super responsive and helpful. Highly recommend!",
+      rating: 5,
+      date: "2 weeks ago",
     },
     {
-      avatarUrl: "",
+      avatarUrl: "/avatars/avatar2.png",
       user: "Janet Doe",
       message:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
-      ratings: "⭐⭐⭐⭐",
-      date: "12:02pm - 12/12/25",
+        "Great location and beautiful apartment. Everything was as described. Would definitely stay again.",
+      rating: 4,
+      date: "1 month ago",
     },
     {
-      avatarUrl: "",
+      avatarUrl: "/avatars/avatar3.png",
       user: "Randy Orton",
       message:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
-      ratings: "⭐⭐⭐⭐",
-      date: "12:02pm - 12/12/25",
-    },
-    {
-      avatarUrl: "",
-      user: "Mike Wheeler",
-      message:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's ",
-      ratings: "⭐⭐⭐⭐",
-      date: "12:02pm - 12/12/25",
+        "Loved the amenities, especially the pool and workspace. Perfect for a short stay in Lagos.",
+      rating: 5,
+      date: "1 month ago",
     },
   ];
+
+  // Render star rating
+  const renderStars = (rating: number) => {
+    return (
+      <div className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            size={16}
+            weight={star <= rating ? "fill" : "regular"}
+            className={star <= rating ? "text-yellow-500" : "text-gray-300"}
+          />
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div>
-      <h2 className="hFour font-semibold">Reviews</h2>
-      <div className="space-y-6 mt-6">
-        {reviews.map((info, id) => (
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="hFour font-semibold">Reviews</h2>
+        <span className="text-sm text-gray-500">{reviews.length} reviews</span>
+      </div>
+
+      <div className="space-y-6">
+        {reviews.map((review, id) => (
           <div
             key={id}
-            className="border p-3 rounded-2xl grid grid-cols-[60px_1fr] gap-4"
+            className="border p-4 rounded-2xl grid grid-cols-[50px_1fr] gap-4"
           >
-            {/* image */}
-            <div></div>
+            {/* Avatar */}
+            <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center">
+              <span className="text-lg font-semibold text-gray-600">
+                {review.user.charAt(0)}
+              </span>
+            </div>
 
-            <div className="space-y-3 p-2">
-              {/* user */}
-              <h2 className="font-semibold text-[#0F172A]">{info.user}</h2>
-              {/* message */}
-              <p className="text-[#666666] text-sm mt-2">{info.message}</p>
-              {/* border */}
-              <div className="bg-[#D4DEED] h-px rounded-full w-[90%] text-center"></div>
-              <div className="grid space-y-3">
-                {/* ratings*/}
-                <span>{info.ratings}</span>
-                {/* date */}
-                <span className="text-[#666666] text sm">{info.date}</span>
+            {/* Review Content */}
+            <div className="space-y-3">
+              {/* User & Date */}
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-[#0F172A]">{review.user}</h3>
+                <span className="text-xs text-gray-500">{review.date}</span>
               </div>
+
+              {/* Rating */}
+              {renderStars(review.rating)}
+
+              {/* Message */}
+              <p className="text-[#666666] text-sm leading-relaxed">
+                {review.message}
+              </p>
             </div>
           </div>
         ))}
