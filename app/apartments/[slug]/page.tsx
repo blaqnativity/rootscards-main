@@ -1,19 +1,19 @@
 import { fetchFromAPI } from "@/utils/api";
-import { fetchApartmentById } from "@/lib/apartmentUtils";
+import { fetchApartmentBySlug } from "@/lib/apartmentUtils";
 import { notFound } from "next/navigation";
 import DetailsPageClient from "./DetailsPageClient";
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 export default async function Page({ params }: PageProps) {
-  const { id } = params;
+  const { slug } = await params; // Added await here
 
-  // Fetch apartment data from API
-  const apartment = await fetchApartmentById(id, fetchFromAPI);
+  // Fetch apartment data using slug
+  const apartment = await fetchApartmentBySlug(slug, fetchFromAPI);
 
   // Show 404 if apartment not found
   if (!apartment) {

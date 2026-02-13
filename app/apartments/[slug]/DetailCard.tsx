@@ -17,7 +17,7 @@ const DetailCard = () => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border p-6 space-y-5 sticky top-6">
+    <div className="bg-white rounded-2xl shadow-sm border p-6 space-y-5">
       {/* Title */}
       <h2 className="hFour">{apartment.name}</h2>
 
